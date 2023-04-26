@@ -30,7 +30,7 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: analysis_comment
-          path: .next/analyze/__bundle_analysis_comment.txt
+          path: .next/analyze
 
       - name: Get Comment Body
         id: get-comment-body

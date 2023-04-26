@@ -78,6 +78,13 @@ jobs:
         if: success() && github.event.number
         run: ls -laR .next/analyze/base && npx -p nextjs-bundle-analysis compare
 
+      - name: Upload analysis
+        if: success() && github.event.number
+        uses: actions/upload-artifact@v2
+        with:
+          name: analysis_comment
+          path: .next/analyze/__bundle_analysis_comment.txt
+
       - name: Save PR number
         if: ${{ always() }}
         run: echo ${{ github.event.number }} > ./pr-id.txt
